@@ -1,0 +1,110 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sauceclient Module &mdash; sauceclient library - Python documentation</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1.0dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/theme_extras.js"></script>
+    <link rel="top" title="sauceclient library - Python documentation" href="index.html" />
+    <link rel="next" title="test_sauceclient Module" href="test_sauceclient.html" />
+    <link rel="prev" title="Getting started with sauceclient" href="getting_started.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
+          <span>sauceclient docs</span></a></h1>
+        <h2 class="heading"><span>sauceclient Module</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        «&#160;&#160;<a href="getting_started.html">Getting started with <cite>sauceclient</cite></a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="test_sauceclient.html">test_sauceclient Module</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="module-sauceclient">
+<span id="sauceclient-module"></span><h1>sauceclient Module<a class="headerlink" href="#module-sauceclient" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="sauceclient.SauceJobs">
+<em class="property">class </em><tt class="descclassname">sauceclient.</tt><tt class="descname">SauceJobs</tt><big>(</big><em>sauce_username</em>, <em>sauce_access_key</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="sauceclient.SauceJobs._request">
+<tt class="descname">_request</tt><big>(</big><em>method</em>, <em>url</em>, <em>body=None</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs._request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs._request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="sauceclient.SauceJobs.get_job_attributes">
+<tt class="descname">get_job_attributes</tt><big>(</big><em>job_id</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs.get_job_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs.get_job_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>get information for the specified job.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sauceclient.SauceJobs.list_job_ids">
+<tt class="descname">list_job_ids</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs.list_job_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs.list_job_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>list all jobs id&#8217;s belonging to the user.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sauceclient.SauceJobs.list_jobs">
+<tt class="descname">list_jobs</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs.list_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs.list_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>list all jobs belonging to the user.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sauceclient.SauceJobs.update_job">
+<tt class="descname">update_job</tt><big>(</big><em>job_id</em>, <em>build_num=None</em>, <em>custom_data=None</em>, <em>name=None</em>, <em>passed=None</em>, <em>public=None</em>, <em>tags=None</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs.update_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs.update_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>update attributes for the specified job.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        «&#160;&#160;<a href="getting_started.html">Getting started with <cite>sauceclient</cite></a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="test_sauceclient.html">test_sauceclient Module</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Corey Goldberg.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sauceclient &mdash; sauceclient library - Python documentation</title>
+    
+    <link rel="stylesheet" href="../_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/print.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/theme_extras.js"></script>
+    <link rel="top" title="sauceclient library - Python documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body>
+      <div class="header"><h1 class="heading"><a href="../index.html">
+          <span>sauceclient docs</span></a></h1>
+        <h2 class="heading"><span>sauceclient</span></h2>
+      </div>
+      <div class="topnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <h1>Source code for sauceclient</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+<span class="c">#</span>
+<span class="c">#   Copyright (c) 2012 Corey Goldberg</span>
+<span class="c">#</span>
+<span class="c">#   This file is part of: sauceclient</span>
+<span class="c">#   https://github.com/cgoldberg/sauceclient</span>
+<span class="c">#</span>
+<span class="c">#   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c">#   you may not use this file except in compliance with the License.</span>
+<span class="c">#   You may obtain a copy of the License at</span>
+<span class="c">#</span>
+<span class="c">#       http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c">#</span>
+
+
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">httplib</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s">&#39;0.1.0dev&#39;</span>
+
+
+<div class="viewcode-block" id="SauceJobs"><a class="viewcode-back" href="../sauceclient.html#sauceclient.SauceJobs">[docs]</a><span class="k">class</span> <span class="nc">SauceJobs</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span> <span class="o">=</span> <span class="n">sauce_username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sauce_access_key</span> <span class="o">=</span> <span class="n">sauce_access_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base64string</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">encodestring</span><span class="p">(</span>
+            <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">)</span>
+        <span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<div class="viewcode-block" id="SauceJobs._request"><a class="viewcode-back" href="../sauceclient.html#sauceclient.SauceJobs._request">[docs]</a>    <span class="k">def</span> <span class="nf">_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s">&#39;Basic </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">base64string</span><span class="p">}</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">httplib</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">&#39;saucelabs.com&#39;</span><span class="p">)</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">: </span><span class="si">%s</span><span class="s">.</span><span class="se">\n</span><span class="s">Sauce Status NOT OK&#39;</span> <span class="o">%</span>
+                            <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">json_data</span>
+</div>
+<div class="viewcode-block" id="SauceJobs.list_job_ids"><a class="viewcode-back" href="../sauceclient.html#sauceclient.SauceJobs.list_job_ids">[docs]</a>    <span class="k">def</span> <span class="nf">list_job_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;list all jobs id&#39;s belonging to the user.&quot;&quot;&quot;</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="n">jobs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+        <span class="n">job_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">attr</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">job_ids</span>
+</div>
+<div class="viewcode-block" id="SauceJobs.list_jobs"><a class="viewcode-back" href="../sauceclient.html#sauceclient.SauceJobs.list_jobs">[docs]</a>    <span class="k">def</span> <span class="nf">list_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;list all jobs belonging to the user.&quot;&quot;&quot;</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span>
+        <span class="n">url</span> <span class="o">+=</span> <span class="s">&#39;?full=true&#39;</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="n">jobs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">jobs</span>
+</div>
+<div class="viewcode-block" id="SauceJobs.get_job_attributes"><a class="viewcode-back" href="../sauceclient.html#sauceclient.SauceJobs.get_job_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">get_job_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;get information for the specified job.&quot;&quot;&quot;</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">attributes</span>
+</div>
+<div class="viewcode-block" id="SauceJobs.update_job"><a class="viewcode-back" href="../sauceclient.html#sauceclient.SauceJobs.update_job">[docs]</a>    <span class="k">def</span> <span class="nf">update_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_id</span><span class="p">,</span> <span class="n">build_num</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">custom_data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                   <span class="n">name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">passed</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;update attributes for the specified job.&quot;&quot;&quot;</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">build_num</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">content</span><span class="p">[</span><span class="s">&#39;build&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">build_num</span>
+        <span class="k">if</span> <span class="n">custom_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">content</span><span class="p">[</span><span class="s">&#39;custom-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">custom_data</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">content</span><span class="p">[</span><span class="s">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="n">passed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">content</span><span class="p">[</span><span class="s">&#39;passed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">passed</span>
+        <span class="k">if</span> <span class="n">public</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">content</span><span class="p">[</span><span class="s">&#39;public&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">public</span>
+        <span class="k">if</span> <span class="n">tags</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">content</span><span class="p">[</span><span class="s">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tags</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;PUT&#39;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">attributes</span></div></div>
+</pre></div>
+
+      </div>
+      <div class="bottomnav">
+      
+        <p>
+        <a class="uplink" href="../index.html">Contents</a>
+        </p>
+
+      </div>
+
+    <div class="footer">
+        &copy; Copyright 2012, Corey Goldberg.
+    </div>
+  </body>
+</html>
