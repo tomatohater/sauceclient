@@ -54,7 +54,7 @@
 <span id="sauceclient-module"></span><h1>sauceclient Module<a class="headerlink" href="#module-sauceclient" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="sauceclient.Jobs">
-<em class="property">class </em><tt class="descclassname">sauceclient.</tt><tt class="descname">Jobs</tt><a class="reference internal" href="_modules/sauceclient.html#Jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Jobs" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sauceclient.</tt><tt class="descname">Jobs</tt><big>(</big><em>sauce_username</em>, <em>sauce_access_key</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Jobs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="sauceclient.Jobs.get_job_attributes">
 <tt class="descname">get_job_attributes</tt><big>(</big><em>job_id</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Jobs.get_job_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Jobs.get_job_attributes" title="Permalink to this definition">¶</a></dt>
@@ -83,7 +83,7 @@
 
 <dl class="class">
 <dt id="sauceclient.Provisioning">
-<em class="property">class </em><tt class="descclassname">sauceclient.</tt><tt class="descname">Provisioning</tt><a class="reference internal" href="_modules/sauceclient.html#Provisioning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Provisioning" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sauceclient.</tt><tt class="descname">Provisioning</tt><big>(</big><em>sauce_username</em>, <em>sauce_access_key</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Provisioning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Provisioning" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="sauceclient.Provisioning.get_account_details">
 <tt class="descname">get_account_details</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Provisioning.get_account_details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Provisioning.get_account_details" title="Permalink to this definition">¶</a></dt>
@@ -98,10 +98,19 @@
 
 </dd></dl>
 
-<dl class="function">
-<dt id="sauceclient.set_credentials">
-<tt class="descclassname">sauceclient.</tt><tt class="descname">set_credentials</tt><big>(</big><em>sauce_username</em>, <em>sauce_access_key</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#set_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.set_credentials" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set credentials for Sauce Labs authorization.</p>
+<dl class="class">
+<dt id="sauceclient.SauceClient">
+<em class="property">class </em><tt class="descclassname">sauceclient.</tt><tt class="descname">SauceClient</tt><big>(</big><em>sauce_username</em>, <em>sauce_access_key</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceClient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="sauceclient.SauceClient.make_headers">
+<tt class="descname">make_headers</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceClient.make_headers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceClient.make_headers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="sauceclient.SauceClient.request">
+<tt class="descname">request</tt><big>(</big><em>method</em>, <em>url</em>, <em>body=None</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceClient.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceClient.request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>

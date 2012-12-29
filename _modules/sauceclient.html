@@ -73,55 +73,46 @@
 <span class="n">__version__</span> <span class="o">=</span> <span class="s">&#39;0.1.0dev&#39;</span>
 
 
-<span class="n">SAUCE_USERNAME</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">SAUCE_ACCESS_KEY</span> <span class="o">=</span> <span class="bp">None</span>
 
+<div class="viewcode-block" id="SauceClient"><a class="viewcode-back" href="../sauceclient.html#sauceclient.SauceClient">[docs]</a><span class="k">class</span> <span class="nc">SauceClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-<div class="viewcode-block" id="set_credentials"><a class="viewcode-back" href="../sauceclient.html#sauceclient.set_credentials">[docs]</a><span class="k">def</span> <span class="nf">set_credentials</span><span class="p">(</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Set credentials for Sauce Labs authorization.&quot;&quot;&quot;</span>
-    <span class="k">global</span> <span class="n">SAUCE_USERNAME</span>
-    <span class="k">global</span> <span class="n">SAUCE_ACCESS_KEY</span>
-    <span class="n">SAUCE_USERNAME</span> <span class="o">=</span> <span class="n">sauce_username</span>
-    <span class="n">SAUCE_ACCESS_KEY</span> <span class="o">=</span> <span class="n">sauce_access_key</span>
-</div>
-<span class="k">def</span> <span class="nf">_make_headers</span><span class="p">(</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">):</span>
-    <span class="n">base64string</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">encodestring</span><span class="p">(</span>
-        <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">)</span>
-    <span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s">&#39;Basic </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">base64string</span><span class="p">,</span>
-        <span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">headers</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span> <span class="o">=</span> <span class="n">sauce_username</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sauce_access_key</span> <span class="o">=</span> <span class="n">sauce_access_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_headers</span><span class="p">()</span>
+        
+<div class="viewcode-block" id="SauceClient.make_headers"><a class="viewcode-back" href="../sauceclient.html#sauceclient.SauceClient.make_headers">[docs]</a>    <span class="k">def</span> <span class="nf">make_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">base64string</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">encodestring</span><span class="p">(</span>
+            <span class="s">&#39;</span><span class="si">%s</span><span class="s">:</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_access_key</span><span class="p">)</span>
+        <span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s">&#39;Basic </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">base64string</span><span class="p">,</span>
+            <span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">headers</span>
+        </div>
+<div class="viewcode-block" id="SauceClient.request"><a class="viewcode-back" href="../sauceclient.html#sauceclient.SauceClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">httplib</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">&#39;saucelabs.com&#39;</span><span class="p">)</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">: </span><span class="si">%s</span><span class="s">.</span><span class="se">\n</span><span class="s">Sauce Status NOT OK&#39;</span> <span class="o">%</span>
+                            <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">json_data</span>
     
-<span class="k">def</span> <span class="nf">_sauce_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="n">connection</span> <span class="o">=</span> <span class="n">httplib</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">(</span><span class="s">&#39;saucelabs.com&#39;</span><span class="p">)</span>
-    <span class="n">connection</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-    <span class="n">json_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s">: </span><span class="si">%s</span><span class="s">.</span><span class="se">\n</span><span class="s">Sauce Status NOT OK&#39;</span> <span class="o">%</span>
-                        <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">json_data</span>
-    
-
+</div></div>
 <div class="viewcode-block" id="Jobs"><a class="viewcode-back" href="../sauceclient.html#sauceclient.Jobs">[docs]</a><span class="k">class</span> <span class="nc">Jobs</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span> <span class="o">=</span> <span class="n">SAUCE_USERNAME</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sauce_access_key</span> <span class="o">=</span> <span class="n">SAUCE_ACCESS_KEY</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_access_key</span><span class="p">)):</span>
-            <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s">&#39;Error: please set credentials&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="n">_make_headers</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_access_key</span>
-        <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sc</span> <span class="o">=</span> <span class="n">SauceClient</span><span class="p">(</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">)</span>
     
 <div class="viewcode-block" id="Jobs.list_job_ids"><a class="viewcode-back" href="../sauceclient.html#sauceclient.Jobs.list_job_ids">[docs]</a>    <span class="k">def</span> <span class="nf">list_job_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;List all jobs id&#39;s belonging to the user.&quot;&quot;&quot;</span>
         <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span>
-        <span class="n">json_data</span> <span class="o">=</span> <span class="n">_sauce_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">sauce_username</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="n">jobs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
         <span class="n">job_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">attr</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">job_ids</span>
@@ -129,17 +120,16 @@
 <div class="viewcode-block" id="Jobs.list_jobs"><a class="viewcode-back" href="../sauceclient.html#sauceclient.Jobs.list_jobs">[docs]</a>    <span class="k">def</span> <span class="nf">list_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;List all jobs belonging to the user.&quot;&quot;&quot;</span>
         <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span>
-        <span class="n">url</span> <span class="o">+=</span> <span class="s">&#39;?full=true&#39;</span>
-        <span class="n">json_data</span> <span class="o">=</span> <span class="n">_sauce_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs?full=true&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">sauce_username</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="n">jobs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">jobs</span>
 </div>
 <div class="viewcode-block" id="Jobs.get_job_attributes"><a class="viewcode-back" href="../sauceclient.html#sauceclient.Jobs.get_job_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">get_job_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">job_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get information for the specified job.&quot;&quot;&quot;</span>
         <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span>
-        <span class="n">json_data</span> <span class="o">=</span> <span class="n">_sauce_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">attributes</span>
 </div>
@@ -161,39 +151,33 @@
             <span class="n">content</span><span class="p">[</span><span class="s">&#39;tags&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tags</span>
         <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
         <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;PUT&#39;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span>
-        <span class="n">json_data</span> <span class="o">=</span> <span class="n">_sauce_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
         <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">attributes</span>
 
 </div></div>
 <div class="viewcode-block" id="Provisioning"><a class="viewcode-back" href="../sauceclient.html#sauceclient.Provisioning">[docs]</a><span class="k">class</span> <span class="nc">Provisioning</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span> <span class="o">=</span> <span class="n">SAUCE_USERNAME</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">sauce_access_key</span> <span class="o">=</span> <span class="n">SAUCE_ACCESS_KEY</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_access_key</span><span class="p">)):</span>
-            <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s">&#39;Error: please set credentials&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="n">_make_headers</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_access_key</span>
-        <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sc</span> <span class="o">=</span> <span class="n">SauceClient</span><span class="p">(</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">sauce_access_key</span><span class="p">)</span>
             
 <div class="viewcode-block" id="Provisioning.get_account_details"><a class="viewcode-back" href="../sauceclient.html#sauceclient.Provisioning.get_account_details">[docs]</a>    <span class="k">def</span> <span class="nf">get_account_details</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Access account details.&quot;&quot;&quot;</span>
         <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/users/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span>
-        <span class="n">json_data</span> <span class="o">=</span> <span class="n">_sauce_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/users/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">sauce_username</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">attributes</span>
 </div>
 <div class="viewcode-block" id="Provisioning.get_account_limits"><a class="viewcode-back" href="../sauceclient.html#sauceclient.Provisioning.get_account_limits">[docs]</a>    <span class="k">def</span> <span class="nf">get_account_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Access account limits.&quot;&quot;&quot;</span>
         <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/limits&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sauce_username</span>
-        <span class="n">json_data</span> <span class="o">=</span> <span class="n">_sauce_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/limits&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">sauce_username</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sc</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
         <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">attributes</span></div></div>
-</pre></div>
+        <span class="k">return</span> <span class="n">attributes</span>
+</pre></div></div></div>
 
       </div>
       <div class="bottomnav">
