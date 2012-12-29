@@ -53,38 +53,55 @@
   <div class="section" id="module-sauceclient">
 <span id="sauceclient-module"></span><h1>sauceclient Module<a class="headerlink" href="#module-sauceclient" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="sauceclient.SauceJobs">
-<em class="property">class </em><tt class="descclassname">sauceclient.</tt><tt class="descname">SauceJobs</tt><big>(</big><em>sauce_username</em>, <em>sauce_access_key</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<dl class="method">
-<dt id="sauceclient.SauceJobs._request">
-<tt class="descname">_request</tt><big>(</big><em>method</em>, <em>url</em>, <em>body=None</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs._request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs._request" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="sauceclient.SauceJobs.get_job_attributes">
-<tt class="descname">get_job_attributes</tt><big>(</big><em>job_id</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs.get_job_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs.get_job_attributes" title="Permalink to this definition">¶</a></dt>
-<dd><p>get information for the specified job.</p>
+<dt id="sauceclient.Jobs">
+<em class="property">class </em><tt class="descclassname">sauceclient.</tt><tt class="descname">Jobs</tt><a class="reference internal" href="_modules/sauceclient.html#Jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Jobs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="sauceclient.Jobs.get_job_attributes">
+<tt class="descname">get_job_attributes</tt><big>(</big><em>job_id</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Jobs.get_job_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Jobs.get_job_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information for the specified job.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sauceclient.SauceJobs.list_job_ids">
-<tt class="descname">list_job_ids</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs.list_job_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs.list_job_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>list all jobs id&#8217;s belonging to the user.</p>
+<dt id="sauceclient.Jobs.list_job_ids">
+<tt class="descname">list_job_ids</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Jobs.list_job_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Jobs.list_job_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all jobs id&#8217;s belonging to the user.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sauceclient.SauceJobs.list_jobs">
-<tt class="descname">list_jobs</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs.list_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs.list_jobs" title="Permalink to this definition">¶</a></dt>
-<dd><p>list all jobs belonging to the user.</p>
+<dt id="sauceclient.Jobs.list_jobs">
+<tt class="descname">list_jobs</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Jobs.list_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Jobs.list_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all jobs belonging to the user.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sauceclient.SauceJobs.update_job">
-<tt class="descname">update_job</tt><big>(</big><em>job_id</em>, <em>build_num=None</em>, <em>custom_data=None</em>, <em>name=None</em>, <em>passed=None</em>, <em>public=None</em>, <em>tags=None</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#SauceJobs.update_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.SauceJobs.update_job" title="Permalink to this definition">¶</a></dt>
-<dd><p>update attributes for the specified job.</p>
+<dt id="sauceclient.Jobs.update_job">
+<tt class="descname">update_job</tt><big>(</big><em>job_id</em>, <em>build_num=None</em>, <em>custom_data=None</em>, <em>name=None</em>, <em>passed=None</em>, <em>public=None</em>, <em>tags=None</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Jobs.update_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Jobs.update_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update attributes for the specified job.</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="sauceclient.Provisioning">
+<em class="property">class </em><tt class="descclassname">sauceclient.</tt><tt class="descname">Provisioning</tt><a class="reference internal" href="_modules/sauceclient.html#Provisioning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Provisioning" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="sauceclient.Provisioning.get_account_details">
+<tt class="descname">get_account_details</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Provisioning.get_account_details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Provisioning.get_account_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access account details.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sauceclient.Provisioning.get_account_limits">
+<tt class="descname">get_account_limits</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/sauceclient.html#Provisioning.get_account_limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.Provisioning.get_account_limits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access account limits.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="sauceclient.set_credentials">
+<tt class="descclassname">sauceclient.</tt><tt class="descname">set_credentials</tt><big>(</big><em>sauce_username</em>, <em>sauce_access_key</em><big>)</big><a class="reference internal" href="_modules/sauceclient.html#set_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sauceclient.set_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set credentials for Sauce Labs authorization.</p>
 </dd></dl>
 
 </div>

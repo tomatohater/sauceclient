@@ -61,7 +61,7 @@
 <span class="c">#</span>
 
 
-<span class="kn">from</span> <span class="nn">sauceclient</span> <span class="kn">import</span> <span class="n">SauceJobs</span>
+<span class="kn">import</span> <span class="nn">sauceclient</span>
 
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
@@ -70,31 +70,46 @@
 <span class="c"># set these to run tests</span>
 <span class="n">SAUCE_USERNAME</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
 <span class="n">SAUCE_ACCESS_KEY</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-<span class="n">TEST_JOB_ID</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>  <span class="c"># any valid id</span>
+<span class="n">TEST_JOB_ID</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>  <span class="c"># any valid job</span>
 
 
-<div class="viewcode-block" id="TestSauceJobs"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestSauceJobs">[docs]</a><span class="k">class</span> <span class="nc">TestSauceJobs</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
-
-<div class="viewcode-block" id="TestSauceJobs.setUp"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestSauceJobs.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span> <span class="o">=</span> <span class="n">SauceJobs</span><span class="p">(</span><span class="n">SAUCE_USERNAME</span><span class="p">,</span> <span class="n">SAUCE_ACCESS_KEY</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s">&#39;&#39;</span> <span class="ow">in</span> <span class="p">(</span><span class="n">SAUCE_USERNAME</span><span class="p">,</span> <span class="n">SAUCE_ACCESS_KEY</span><span class="p">,</span> <span class="n">TEST_JOB_ID</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s">&#39;Change your credentials (username/access-key)&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="TestAPIRequest"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestAPIRequest">[docs]</a><span class="k">class</span> <span class="nc">TestAPIRequest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    
+<div class="viewcode-block" id="TestAPIRequest.setUp"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestAPIRequest.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="n">sauceclient</span><span class="o">.</span><span class="n">_make_headers</span><span class="p">(</span>
+            <span class="n">SAUCE_USERNAME</span><span class="p">,</span>
+            <span class="n">SAUCE_ACCESS_KEY</span><span class="p">,</span>
+        <span class="p">)</span>
 </div>
-<div class="viewcode-block" id="TestSauceJobs.test_request"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestSauceJobs.test_request">[docs]</a>    <span class="k">def</span> <span class="nf">test_request</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/</span><span class="si">%s</span><span class="s">/jobs/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">sauce_username</span><span class="p">,</span> <span class="n">TEST_JOB_ID</span><span class="p">)</span>
-        <span class="n">json_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<div class="viewcode-block" id="TestAPIRequest.test_headers"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestAPIRequest.test_headers">[docs]</a>    <span class="k">def</span> <span class="nf">test_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;Authorization&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;Basic&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;Authorization&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s">&#39;application/json&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;Content-Type&#39;</span><span class="p">])</span>
+        </div>
+<div class="viewcode-block" id="TestAPIRequest.test_request"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestAPIRequest.test_request">[docs]</a>    <span class="k">def</span> <span class="nf">test_request</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s">&#39;/rest/v1/users/</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">SAUCE_USERNAME</span>
+        <span class="n">json_data</span> <span class="o">=</span> <span class="n">sauceclient</span><span class="o">.</span><span class="n">_sauce_request</span><span class="p">(</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">json_data</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
         <span class="n">attributes</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="TestJobs"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestJobs">[docs]</a><span class="k">class</span> <span class="nc">TestJobs</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="TestJobs.setUp"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestJobs.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">sauceclient</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span><span class="n">SAUCE_USERNAME</span><span class="p">,</span> <span class="n">SAUCE_ACCESS_KEY</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span> <span class="o">=</span> <span class="n">sauceclient</span><span class="o">.</span><span class="n">Jobs</span><span class="p">()</span>
 </div>
-<div class="viewcode-block" id="TestSauceJobs.test_list_job_ids"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestSauceJobs.test_list_job_ids">[docs]</a>    <span class="k">def</span> <span class="nf">test_list_job_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestJobs.test_list_job_ids"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestJobs.test_list_job_ids">[docs]</a>    <span class="k">def</span> <span class="nf">test_list_job_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">job_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">list_job_ids</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">job_ids</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
         <span class="n">job_id</span> <span class="o">=</span> <span class="n">job_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">job_id</span><span class="p">,</span> <span class="nb">unicode</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">job_id</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>
 </div>
-<div class="viewcode-block" id="TestSauceJobs.test_list_jobs"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestSauceJobs.test_list_jobs">[docs]</a>    <span class="k">def</span> <span class="nf">test_list_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestJobs.test_list_jobs"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestJobs.test_list_jobs">[docs]</a>    <span class="k">def</span> <span class="nf">test_list_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">jobs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">list_jobs</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">jobs</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
         <span class="n">job</span> <span class="o">=</span> <span class="n">jobs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -102,20 +117,48 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">job</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">],</span> <span class="nb">unicode</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">job</span><span class="p">[</span><span class="s">&#39;owner&#39;</span><span class="p">],</span> <span class="n">SAUCE_USERNAME</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="TestSauceJobs.test_get_job_attributes"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestSauceJobs.test_get_job_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_job_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestJobs.test_get_job_attributes"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestJobs.test_get_job_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_job_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">job_attributes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">get_job_attributes</span><span class="p">(</span><span class="n">TEST_JOB_ID</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">job_attributes</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="n">job_attributes</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">job_attributes</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">],</span> <span class="n">TEST_JOB_ID</span><span class="p">)</span>
 </div>
-<div class="viewcode-block" id="TestSauceJobs.test_update_job"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestSauceJobs.test_update_job">[docs]</a>    <span class="k">def</span> <span class="nf">test_update_job</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TestJobs.test_update_job"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestJobs.test_update_job">[docs]</a>    <span class="k">def</span> <span class="nf">test_update_job</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">job_attributes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">update_job</span><span class="p">(</span><span class="n">TEST_JOB_ID</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">job_attributes</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="n">job_attributes</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">job_attributes</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">],</span> <span class="n">TEST_JOB_ID</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestJobs.tearDown"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestJobs.tearDown">[docs]</a>    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">SAUCE_USERNAME</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">SAUCE_ACCESS_KEY</span> <span class="o">=</span> <span class="bp">None</span>
+
+</div></div>
+<div class="viewcode-block" id="TestProvisioning"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestProvisioning">[docs]</a><span class="k">class</span> <span class="nc">TestProvisioning</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="TestProvisioning.setUp"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestProvisioning.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">sauceclient</span><span class="o">.</span><span class="n">set_credentials</span><span class="p">(</span><span class="n">SAUCE_USERNAME</span><span class="p">,</span> <span class="n">SAUCE_ACCESS_KEY</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">sauceclient</span><span class="o">.</span><span class="n">Provisioning</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="TestProvisioning.test_get_account_details"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestProvisioning.test_get_account_details">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_account_details</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">account_details</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">get_account_details</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">account_details</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="n">account_details</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;minutes&#39;</span><span class="p">,</span> <span class="n">account_details</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;access_key&#39;</span><span class="p">,</span> <span class="n">account_details</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;subscribed&#39;</span><span class="p">,</span> <span class="n">account_details</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">account_details</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">],</span> <span class="n">SAUCE_USERNAME</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="TestProvisioning.test_get_account_limits"><a class="viewcode-back" href="../test_sauceclient.html#test_sauceclient.TestProvisioning.test_get_account_limits">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_account_limits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">account_limits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">get_account_limits</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">account_limits</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s">&#39;concurrency&#39;</span><span class="p">,</span> <span class="n">account_limits</span><span class="p">)</span>
+        <span class="c">#self.assertEqual(account_details[&#39;id&#39;], SAUCE_USERNAME)</span>
 
 </div></div>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">((</span><span class="n">SAUCE_USERNAME</span><span class="p">,</span> <span class="n">SAUCE_ACCESS_KEY</span><span class="p">,</span> <span class="n">TEST_JOB_ID</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s">&#39;Change your credentials (username/access-key)&#39;</span><span class="p">)</span>
     <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
