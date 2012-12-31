@@ -28,7 +28,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="sauceclient library - Python documentation" href="#" />
-    <link rel="next" title="Getting started with sauceclient" href="getting_started.html" /> 
+    <link rel="next" title="sauceclient Module" href="sauceclient.html" /> 
   </head>
   <body>
       <div class="header"><h1 class="heading"><a href="#">
@@ -40,7 +40,7 @@
         <p>
         <a class="uplink" href="#">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="getting_started.html">Getting started with <cite>sauceclient</cite></a>&#160;&#160;»
+        <a href="sauceclient.html">sauceclient Module</a>&#160;&#160;»
         </p>
 
       </div>
@@ -49,17 +49,74 @@
         
   <div class="section" id="sauceclient-python-package-documentation">
 <h1>sauceclient Python package &#8211; documentation<a class="headerlink" href="#sauceclient-python-package-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started with <cite>sauceclient</cite></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#running-a-test-using-local-webdriver">Running a Test Using Local WebDriver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#running-a-test-from-sauce-labs">Running a Test From Sauce Labs</a></li>
+<p><strong>Python client library for Sauce Labs API.</strong></p>
+<ul class="simple">
+<li>Development:</li>
 </ul>
+<blockquote>
+<div><ul class="simple">
+<li><cite>sauceclient</cite> on <a class="reference external" href="https://github.com/cgoldberg/sauceclient">GitHub</a></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Install (coming soon):</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p class="first">with <cite>pip</cite>:</p>
+<div class="highlight-python"><pre>pip install sauceclient</pre>
+</div>
 </li>
 </ul>
+<p>or:</p>
+<ul>
+<li><p class="first">download <a class="reference external" href="http://pypi.python.org/pypi/sauceclient#downloads">Package</a> (souce tarball) from <a class="reference external" href="http://pypi.python.org/pypi">PyPI</a>, unarchive, and run:</p>
+<div class="highlight-python"><pre>python setup.py install</pre>
 </div>
+</li>
+</ul>
+</div></blockquote>
+<div class="section" id="about-sauce-labs">
+<h2>about Sauce Labs<a class="headerlink" href="#about-sauce-labs" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="about-sauceclient">
+<h2>about sauceclient<a class="headerlink" href="#about-sauceclient" title="Permalink to this headline">¶</a></h2>
+<p><cite>sauceclient</cite> is a Python client library, used for accessing the Sauce Labs
+API to retrieve and update information about resources such as:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Information</li>
+<li>Jobs</li>
+<li>Provisioning</li>
+<li>Usage</li>
+</ul>
+</div></blockquote>
+<p><cite>sauceclient</cite> is <em>not</em> used for running your tests on Sauce Labs&#8217;
+service.  (That is done via <a class="reference external" href="selenium_on_sauce.html">Selenium WebDriver</a>).</p>
+</div>
+<div class="section" id="example-usage">
+<h2>example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">public access:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sauceclient</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">sauceclient</span><span class="o">.</span><span class="n">SauceClient</span><span class="p">()</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">information</span><span class="o">.</span><span class="n">get_status</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">with authorization:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sauceclient</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">sauceclient</span><span class="o">.</span><span class="n">SauceClient</span><span class="p">(</span>
+    <span class="s">&#39;sauce-username&#39;</span><span class="p">,</span>
+    <span class="s">&#39;sauce-access-key&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">job_ids</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">get_job_ids</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 <div class="section" id="python-module-reference">
 <h2>Python Module Reference<a class="headerlink" href="#python-module-reference" title="Permalink to this headline">¶</a></h2>
@@ -70,12 +127,27 @@
 </ul>
 </div>
 </div>
+<div class="section" id="prerequisite-reading">
+<h2>Prerequisite Reading<a class="headerlink" href="#prerequisite-reading" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="selenium_on_sauce.html">Selenium WebDriver in Python (local and remote)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="selenium_on_sauce.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selenium_on_sauce.html#selenium-local-webdriver-example">Selenium - Local WebDriver example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selenium_on_sauce.html#selenium-remote-webdriver-example">Selenium - Remote WebDriver example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selenium_on_sauce.html#running-a-test-from-local-webdriver">Running a Test From Local WebDriver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="selenium_on_sauce.html#running-a-test-from-sauce-labs">Running a Test From Sauce Labs</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="related-links">
 <h2>Related Links<a class="headerlink" href="#related-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Sauce Labs | <a class="reference external" href="https://saucelabs.com">https://saucelabs.com</a></li>
-<li>Sauce Labs REST API Documentation | <a class="reference external" href="http://saucelabs.com/docs/rest">http://saucelabs.com/docs/rest</a></li>
-<li>Python bindings for Selenium WebDriver | <a class="reference external" href="http://pypi.python.org/pypi/selenium">http://pypi.python.org/pypi/selenium</a></li>
+<li><a class="reference external" href="https://saucelabs.com">Sauce Labs</a></li>
+<li><a class="reference external" href="http://saucelabs.com/docs/rest">Sauce Labs REST API documentation</a></li>
+<li><a class="reference external" href="http://pypi.python.org/pypi/selenium">Python bindings for Selenium WebDriver</a></li>
 </ul>
 </div>
 </div>
@@ -87,7 +159,7 @@
         <p>
         <a class="uplink" href="#">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="getting_started.html">Getting started with <cite>sauceclient</cite></a>&#160;&#160;»
+        <a href="sauceclient.html">sauceclient Module</a>&#160;&#160;»
         </p>
 
       </div>
