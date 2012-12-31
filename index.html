@@ -50,36 +50,6 @@
   <div class="section" id="sauceclient-python-package-documentation">
 <h1>sauceclient Python package &#8211; documentation<a class="headerlink" href="#sauceclient-python-package-documentation" title="Permalink to this headline">¶</a></h1>
 <p><strong>Python client library for Sauce Labs API.</strong></p>
-<ul class="simple">
-<li>Development:</li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><cite>sauceclient</cite> on <a class="reference external" href="https://github.com/cgoldberg/sauceclient">GitHub</a></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li>Install (coming soon):</li>
-</ul>
-<blockquote>
-<div><ul>
-<li><p class="first">with <cite>pip</cite>:</p>
-<div class="highlight-python"><pre>pip install sauceclient</pre>
-</div>
-</li>
-</ul>
-<p>or:</p>
-<ul>
-<li><p class="first">download <a class="reference external" href="http://pypi.python.org/pypi/sauceclient#downloads">Package</a> (souce tarball)
-from <a class="reference external" href="http://pypi.python.org/pypi">PyPI</a>, unarchive, and run:</p>
-<div class="highlight-python"><pre>python setup.py install</pre>
-</div>
-</li>
-</ul>
-</div></blockquote>
-<div class="section" id="about-sauce-labs">
-<h2>about Sauce Labs<a class="headerlink" href="#about-sauce-labs" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="about-sauceclient">
 <h2>about sauceclient<a class="headerlink" href="#about-sauceclient" title="Permalink to this headline">¶</a></h2>
 <p><cite>sauceclient</cite> is a Python client library, used for accessing the Sauce Labs
@@ -95,9 +65,41 @@ API to retrieve and update information about resources such as:</p>
 <p><cite>sauceclient</cite> is <em>not</em> used for running your tests on Sauce Labs&#8217;
 service.  (That is done via <a class="reference external" href="selenium_on_sauce.html">Selenium WebDriver</a>).</p>
 </div>
-<div class="section" id="example-usage">
-<h2>example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-coming-soon">
+<h2>Install (coming soon)<a class="headerlink" href="#install-coming-soon" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p class="first">with <cite>pip</cite>:</p>
+<div class="highlight-python"><pre>pip install sauceclient</pre>
+</div>
+</li>
+</ul>
+<p>or:</p>
 <ul>
+<li><p class="first">download the latest <cite>sauceclient</cite> <a class="reference external" href="http://pypi.python.org/pypi/sauceclient#downloads">Package</a> (souce tarball)
+from <a class="reference external" href="http://pypi.python.org/pypi">PyPI</a>, unarchive, and run:</p>
+<div class="highlight-python"><pre>python setup.py install</pre>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="about-sauce-labs">
+<h2>about Sauce Labs<a class="headerlink" href="#about-sauce-labs" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://saucelabs.com">Sauce Labs</a> is a service that allows you to run
+remote Selenium WebDriver tests from their cloud. They have VM&#8217;s with 100+
+browser/OS combinations, allowing comprehensive cross-browser cross-platform
+test coverage. Sauce Labs is a paid service, offerning various
+<a class="reference external" href="https://saucelabs.com/pricing">usage plans</a>. They offer
+<a class="reference external" href="https://saucelabs.com/signup/plan/free">free accounts</a> for limited/trial
+use. <a class="reference external" href="https://saucelabs.com/signup/plan/OSS">Open Sauce</a> accounts are also
+free.  Open Sauce allows unlimited automated code minutes, and 3 parrallel
+VM&#8217;s (simultaneous tests), if you have a verified Open Source project.</p>
+</div>
+<div class="section" id="example-sauceclient-usage">
+<h2>example sauceclient usage<a class="headerlink" href="#example-sauceclient-usage" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul>
 <li><p class="first">public access:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sauceclient</span>
 
@@ -118,6 +120,7 @@ service.  (That is done via <a class="reference external" href="selenium_on_sauc
 </div>
 </li>
 </ul>
+</div></blockquote>
 </div>
 <div class="section" id="python-module-reference">
 <h2>Python Module Reference<a class="headerlink" href="#python-module-reference" title="Permalink to this headline">¶</a></h2>
@@ -128,8 +131,8 @@ service.  (That is done via <a class="reference external" href="selenium_on_sauc
 </ul>
 </div>
 </div>
-<div class="section" id="prerequisite-reading">
-<h2>Prerequisite Reading<a class="headerlink" href="#prerequisite-reading" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="running-selenium-webdriver">
+<h2>Running Selenium WebDriver<a class="headerlink" href="#running-selenium-webdriver" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="selenium_on_sauce.html">Selenium WebDriver in Python (local and remote)</a><ul>
@@ -140,10 +143,17 @@ service.  (That is done via <a class="reference external" href="selenium_on_sauc
 <li class="toctree-l2"><a class="reference internal" href="selenium_on_sauce.html#running-a-test-from-sauce-labs">Running a Test From Sauce Labs</a></li>
 </ul>
 </li>
+</ul>
+</div>
+</div>
+<div class="section" id="development">
+<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="development.html">sauceclient Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="development.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html#source-code-repository">Source Code Repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#source-code-repository-github">Source Code Repository (GitHub)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#getting-the-code">Getting the Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development.html#running-the-unit-tests">Running the Unit Tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development.html#generating-the-documentation">Generating the Documentation</a></li>
 </ul>
