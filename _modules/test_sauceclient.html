@@ -48,7 +48,7 @@
   <h1>Source code for test_sauceclient</h1><div class="highlight"><pre>
 <span class="c">#!/usr/bin/env python</span>
 <span class="c">#</span>
-<span class="c">#   Copyright (c) 2012 Corey Goldberg</span>
+<span class="c">#   Copyright (c) 2013 Corey Goldberg</span>
 <span class="c">#</span>
 <span class="c">#   This file is part of: sauceclient</span>
 <span class="c">#   https://github.com/cgoldberg/sauceclient</span>
@@ -61,10 +61,10 @@
 <span class="c">#</span>
 
 
-<span class="kn">import</span> <span class="nn">sauceclient</span>
-
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">import</span> <span class="nn">sauceclient</span>
 
 
 <span class="c"># set these to run tests</span>
@@ -267,7 +267,7 @@
 </div></div>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">((</span><span class="n">SAUCE_USERNAME</span><span class="p">,</span> <span class="n">SAUCE_ACCESS_KEY</span><span class="p">,</span> <span class="n">TEST_JOB_ID</span><span class="p">)):</span>
-        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s">&#39;Change your credentials (username/access-key)&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s">&#39;Set your credentials (username/access-key)&#39;</span><span class="p">)</span>
     <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
@@ -281,7 +281,7 @@
       </div>
 
     <div class="footer">
-        &copy; Copyright 2012, Corey Goldberg.
+        &copy; Copyright 2013, Corey Goldberg.
     </div>
   </body>
 </html>
