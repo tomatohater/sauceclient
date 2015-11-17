@@ -1,54 +1,135 @@
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sauceclient Python package &mdash; sauceclient library - Python documentation</title>
+  
 
+  
+  
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+
+  
+  
     
-    <title>sauceclient Python package – documentation &mdash; sauceclient library - Python documentation</title>
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="sauceclient library - Python documentation" href="#"/>
+        <link rel="next" title="sauceclient Module" href="sauceclient.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/print.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.1.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/theme_extras.js"></script>
-    <link rel="top" title="sauceclient library - Python documentation" href="#" />
-    <link rel="next" title="sauceclient Module" href="sauceclient.html" /> 
-  </head>
-  <body>
-      <div class="header"><h1 class="heading"><a href="#">
-          <span>sauceclient docs</span></a></h1>
-        <h2 class="heading"><span>sauceclient Python package – documentation</span></h2>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> sauceclient
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="sauceclient.html">sauceclient Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test_sauceclient.html">test_sauceclient Module</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="selenium_on_sauce.html">Selenium WebDriver in Python (local and remote)</a></li>
+</ul>
+
+            
+          
+        </div>
       </div>
-      <div class="topnav">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
       
-        <p>
-        <a class="uplink" href="#">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="sauceclient.html">sauceclient Module</a>&#160;&#160;»
-        </p>
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">sauceclient</a>
+      </nav>
 
-      </div>
-      <div class="content">
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>sauceclient Python package</li>
+      <li class="wy-breadcrumbs-aside">
         
+          
         
-  <div class="section" id="sauceclient-python-package-documentation">
-<h1>sauceclient Python package &#8211; documentation<a class="headerlink" href="#sauceclient-python-package-documentation" title="Permalink to this headline">¶</a></h1>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sauceclient-python-package">
+<h1>sauceclient Python package<a class="headerlink" href="#sauceclient-python-package" title="Permalink to this headline">¶</a></h1>
 <p><strong>Python client library for Sauce Labs API.</strong></p>
 <div class="section" id="about-sauceclient">
 <h2>About sauceclient<a class="headerlink" href="#about-sauceclient" title="Permalink to this headline">¶</a></h2>
@@ -60,6 +141,7 @@ API to retrieve and update information about resources such as:</p>
 <li>Jobs</li>
 <li>Provisioning</li>
 <li>Usage</li>
+<li>Assets (Logs, Videos, Screenshots)</li>
 </ul>
 </div></blockquote>
 <p><cite>sauceclient</cite> is <em>not</em> used for running your tests on Sauce Labs&#8217;
@@ -70,15 +152,8 @@ service.  (That is done via <a class="reference external" href="selenium_on_sauc
 <blockquote>
 <div><ul>
 <li><p class="first">with <cite>pip</cite>:</p>
-<div class="highlight-python"><pre>pip install sauceclient</pre>
-</div>
-</li>
-</ul>
-<p>or:</p>
-<ul>
-<li><p class="first">download the latest <cite>sauceclient</cite> <a class="reference external" href="http://pypi.python.org/pypi/sauceclient#downloads">Package</a> (souce tarball)
-from <a class="reference external" href="http://pypi.python.org/pypi">PyPI</a>, unarchive, and run:</p>
-<div class="highlight-python"><pre>python setup.py install</pre>
+<div class="highlight-python"><div class="highlight"><pre>pip install sauceclient
+</pre></div>
 </div>
 </li>
 </ul>
@@ -89,12 +164,7 @@ from <a class="reference external" href="http://pypi.python.org/pypi">PyPI</a>, 
 <p><a class="reference external" href="https://saucelabs.com">Sauce Labs</a> is a service that allows you to run
 remote Selenium WebDriver tests from their cloud. They have VM&#8217;s with 100+
 browser/OS combinations, allowing comprehensive cross-browser cross-platform
-test coverage. Sauce Labs is a paid service, offerning various
-<a class="reference external" href="https://saucelabs.com/pricing">usage plans</a>. They offer
-<a class="reference external" href="https://saucelabs.com/signup/plan/free">free accounts</a> for limited/trial
-use. <a class="reference external" href="https://saucelabs.com/signup/plan/OSS">Open Sauce</a> accounts are also
-free.  Open Sauce allows unlimited automated code minutes, and 3 parrallel
-VM&#8217;s (simultaneous tests), if you have a verified Open Source project.</p>
+test coverage.</p>
 </div>
 <div class="section" id="example-sauceclient-usage">
 <h2>Example sauceclient Usage<a class="headerlink" href="#example-sauceclient-usage" title="Permalink to this headline">¶</a></h2>
@@ -146,21 +216,6 @@ VM&#8217;s (simultaneous tests), if you have a verified Open Source project.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="development">
-<h2>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="development.html">sauceclient Development</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="development.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html#source-code-repository-github">Source Code Repository (GitHub)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html#getting-the-code">Getting the Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html#running-the-unit-tests">Running the Unit Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development.html#generating-the-documentation">Generating the Documentation</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 <div class="section" id="related-links">
 <h2>Related Links<a class="headerlink" href="#related-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -172,19 +227,68 @@ VM&#8217;s (simultaneous tests), if you have a verified Open Source project.</p>
 </div>
 
 
-      </div>
-      <div class="bottomnav">
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        <a class="uplink" href="#">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="sauceclient.html">sauceclient Module</a>&#160;&#160;»
-        </p>
+        <a href="sauceclient.html" class="btn btn-neutral float-right" title="sauceclient Module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Corey Goldberg.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer">
-        &copy; Copyright 2013, Corey Goldberg.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

@@ -1,200 +1,338 @@
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>test_sauceclient Module &mdash; sauceclient library - Python documentation</title>
+  
 
+  
+  
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+
+  
+  
     
-    <title>test_sauceclient Module &mdash; sauceclient library - Python documentation</title>
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="sauceclient library - Python documentation" href="index.html"/>
+        <link rel="next" title="Selenium WebDriver in Python (local and remote)" href="selenium_on_sauce.html"/>
+        <link rel="prev" title="sauceclient Module" href="sauceclient.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/print.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.1.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/theme_extras.js"></script>
-    <link rel="top" title="sauceclient library - Python documentation" href="index.html" />
-    <link rel="next" title="Selenium WebDriver in Python (local and remote)" href="selenium_on_sauce.html" />
-    <link rel="prev" title="sauceclient Module" href="sauceclient.html" /> 
-  </head>
-  <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
-          <span>sauceclient docs</span></a></h1>
-        <h2 class="heading"><span>test_sauceclient Module</span></h2>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> sauceclient
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sauceclient.html">sauceclient Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">test_sauceclient Module</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="selenium_on_sauce.html">Selenium WebDriver in Python (local and remote)</a></li>
+</ul>
+
+            
+          
+        </div>
       </div>
-      <div class="topnav">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
       
-        <p>
-        «&#160;&#160;<a href="sauceclient.html">sauceclient Module</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="selenium_on_sauce.html">Selenium WebDriver in Python (local and remote)</a>&#160;&#160;»
-        </p>
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">sauceclient</a>
+      </nav>
 
-      </div>
-      <div class="content">
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>test_sauceclient Module</li>
+      <li class="wy-breadcrumbs-aside">
         
+          
         
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="module-test_sauceclient">
 <span id="test-sauceclient-module"></span><h1>test_sauceclient Module<a class="headerlink" href="#module-test_sauceclient" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="test_sauceclient.TestInformation">
-<em class="property">class </em><tt class="descclassname">test_sauceclient.</tt><tt class="descname">TestInformation</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">test_sauceclient.</code><code class="descname">TestInformation</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="test_sauceclient.TestInformation.setUp">
-<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.setUp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.setUp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="test_sauceclient.TestInformation.test_get_browswers">
-<tt class="descname">test_get_browswers</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.test_get_browswers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.test_get_browswers" title="Permalink to this definition">¶</a></dt>
+<dt id="test_sauceclient.TestInformation.test_get_browsers">
+<code class="descname">test_get_browsers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.test_get_browsers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.test_get_browsers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestInformation.test_get_count">
-<tt class="descname">test_get_count</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.test_get_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.test_get_count" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.test_get_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.test_get_count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestInformation.test_get_status">
-<tt class="descname">test_get_status</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.test_get_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.test_get_status" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.test_get_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.test_get_status" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestInformation.test_get_status_with_auth">
-<tt class="descname">test_get_status_with_auth</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.test_get_status_with_auth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.test_get_status_with_auth" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_status_with_auth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestInformation.test_get_status_with_auth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestInformation.test_get_status_with_auth" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="test_sauceclient.TestJobs">
-<em class="property">class </em><tt class="descclassname">test_sauceclient.</tt><tt class="descname">TestJobs</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">test_sauceclient.</code><code class="descname">TestJobs</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="test_sauceclient.TestJobs.setUp">
-<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.setUp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="test_sauceclient.TestJobs.test_get_job_assets">
+<code class="descname">test_get_job_assets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.test_get_job_assets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.test_get_job_assets" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestJobs.test_get_job_attributes">
-<tt class="descname">test_get_job_attributes</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.test_get_job_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.test_get_job_attributes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_job_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.test_get_job_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.test_get_job_attributes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestJobs.test_get_job_ids">
-<tt class="descname">test_get_job_ids</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.test_get_job_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.test_get_job_ids" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_job_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.test_get_job_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.test_get_job_ids" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestJobs.test_get_jobs">
-<tt class="descname">test_get_jobs</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.test_get_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.test_get_jobs" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_jobs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.test_get_jobs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.test_get_jobs" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestJobs.test_update_job">
-<tt class="descname">test_update_job</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.test_update_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.test_update_job" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_update_job</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestJobs.test_update_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestJobs.test_update_job" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="test_sauceclient.TestProvisioning">
-<em class="property">class </em><tt class="descclassname">test_sauceclient.</tt><tt class="descname">TestProvisioning</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestProvisioning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestProvisioning" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">test_sauceclient.</code><code class="descname">TestProvisioning</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestProvisioning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestProvisioning" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="test_sauceclient.TestProvisioning.setUp">
-<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestProvisioning.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestProvisioning.setUp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestProvisioning.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestProvisioning.setUp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestProvisioning.test_get_account_details">
-<tt class="descname">test_get_account_details</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestProvisioning.test_get_account_details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestProvisioning.test_get_account_details" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_account_details</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestProvisioning.test_get_account_details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestProvisioning.test_get_account_details" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestProvisioning.test_get_account_limits">
-<tt class="descname">test_get_account_limits</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestProvisioning.test_get_account_limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestProvisioning.test_get_account_limits" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_account_limits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestProvisioning.test_get_account_limits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestProvisioning.test_get_account_limits" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="test_sauceclient.TestSauceClient">
-<em class="property">class </em><tt class="descclassname">test_sauceclient.</tt><tt class="descname">TestSauceClient</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">test_sauceclient.</code><code class="descname">TestSauceClient</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="test_sauceclient.TestSauceClient.setUp">
-<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient.setUp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient.setUp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestSauceClient.test_has_instances">
-<tt class="descname">test_has_instances</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient.test_has_instances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient.test_has_instances" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_has_instances</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient.test_has_instances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient.test_has_instances" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestSauceClient.test_headers">
-<tt class="descname">test_headers</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient.test_headers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient.test_headers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient.test_headers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient.test_headers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestSauceClient.test_request_get">
-<tt class="descname">test_request_get</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient.test_request_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient.test_request_get" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_request_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestSauceClient.test_request_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestSauceClient.test_request_get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="test_sauceclient.TestUsage">
-<em class="property">class </em><tt class="descclassname">test_sauceclient.</tt><tt class="descname">TestUsage</tt><big>(</big><em>methodName='runTest'</em><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestUsage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestUsage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">test_sauceclient.</code><code class="descname">TestUsage</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestUsage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestUsage" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="test_sauceclient.TestUsage.setUp">
-<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestUsage.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestUsage.setUp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestUsage.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestUsage.setUp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestUsage.test_get_current_activity">
-<tt class="descname">test_get_current_activity</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestUsage.test_get_current_activity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestUsage.test_get_current_activity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_current_activity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestUsage.test_get_current_activity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestUsage.test_get_current_activity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="test_sauceclient.TestUsage.test_get_historical_usage">
-<tt class="descname">test_get_historical_usage</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/test_sauceclient.html#TestUsage.test_get_historical_usage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestUsage.test_get_historical_usage" title="Permalink to this definition">¶</a></dt>
+<code class="descname">test_get_historical_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#TestUsage.test_get_historical_usage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.TestUsage.test_get_historical_usage" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
+<dl class="function">
+<dt id="test_sauceclient.assert_is_utf8">
+<code class="descclassname">test_sauceclient.</code><code class="descname">assert_is_utf8</code><span class="sig-paren">(</span><em>content</em>, <em>test_obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/test_sauceclient.html#assert_is_utf8"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#test_sauceclient.assert_is_utf8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 
 
-      </div>
-      <div class="bottomnav">
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="sauceclient.html">sauceclient Module</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="selenium_on_sauce.html">Selenium WebDriver in Python (local and remote)</a>&#160;&#160;»
-        </p>
+        <a href="selenium_on_sauce.html" class="btn btn-neutral float-right" title="Selenium WebDriver in Python (local and remote)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sauceclient.html" class="btn btn-neutral" title="sauceclient Module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013-2015, Corey Goldberg.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer">
-        &copy; Copyright 2013, Corey Goldberg.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>
